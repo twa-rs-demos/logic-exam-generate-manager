@@ -1,12 +1,12 @@
 #! /usr/bin/env bash
 
-#set -x
+set -x
 
 
 
 is_node_process_alive() {
 	[[ 2 = $( ps -e j | grep 'node spec/gen_output.js' | wc -l) ]]  && return 0
-	echo 'determine if node process is alive?' || return 1
+	return 1 # dead
 	
 }
 
@@ -27,7 +27,7 @@ while true; do
 		process_files
 		restart_node_process
 	fi
-	echo do_nothing # to be deleted
+	echo sleep  # to be deleted
 	sleep 5s
 done
 
