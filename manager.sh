@@ -9,8 +9,8 @@ is_node_process_alive() {
 }
 
 
-process_files() {
-	echo 'processing files'
+handle_generated_files() {
+	echo 'handleing generated files'
 
 	echo 'make a new directory to save json and png' 
 	directory="$(date +%Y_%m_%d_%H_%M_%S)"
@@ -32,7 +32,7 @@ restart_node_process() {
 
 while true; do 
 	if  ! is_node_process_alive ; then 
-		process_files
+		handle_generated_files
 		restart_node_process
 	fi
 	echo sleep  # to be deleted
