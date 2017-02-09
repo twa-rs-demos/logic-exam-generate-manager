@@ -12,10 +12,9 @@ is_node_process_alive() {
 
 
 handle_generated_files() {
-
 	# make a new directory to save json and png 
 	directory="$(date +%Y_%m_%d_%H_%M_%S)"
-	mkdir $directory || exit 1 # 新建文件夹失败的异常
+	mkdir $directory || exit 1    # 新建文件夹失败的异常
 
 	# do second step & move files into directory
 	node spec/gen_workable_exam_graph_after_verify.js
@@ -23,11 +22,11 @@ handle_generated_files() {
 	rm workable_exam_before_verify/* 
 }
 
+
 restart_node_process() {
 	# restart node process in background
 	nohup node ./spec/gen_output.js > /dev/null &
 }
-
 
 
 
