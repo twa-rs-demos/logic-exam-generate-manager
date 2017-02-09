@@ -36,7 +36,7 @@ while true; do
 		handle_generated_files
 		restart_node_process
 	fi
-	echo sleep  # to be deleted
+	echo sleep  
 	sleep 10m    # 控制休眠时间
 done
 
