@@ -1,5 +1,8 @@
 #! /usr/bin/env bash
 
+# 监测 logic-exam-generate node 进程是否运行中
+# 1. 运行中，不做任何操作，休眠十分钟后重新开始监测
+# 2. 已停止，将生成的文件挪到文件夹中保存，并重启 node 进程
 
 
 is_node_process_alive() {
@@ -34,6 +37,6 @@ while true; do
 		restart_node_process
 	fi
 	echo sleep  # to be deleted
-	sleep 2s
+	sleep 10m    # 控制休眠时间
 done
 
