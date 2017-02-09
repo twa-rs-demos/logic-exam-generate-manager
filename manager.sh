@@ -2,7 +2,6 @@
 
 #set -x
 
-directory="$(date +%Y_%m_%d_%H_%M_%S)"
 
 is_node_process_alive() {
 	[[ 2 = $( ps -e j | grep 'node ./spec/gen_output.js' | wc -l) ]]  && return 0
@@ -14,6 +13,7 @@ process_files() {
 	echo 'processing files'
 
 	echo 'make a new directory to save json and png' 
+	directory="$(date +%Y_%m_%d_%H_%M_%S)"
 	mkdir $directory || exit 1 # 新建文件夹失败的异常
 
 	echo 'do second step & move files into directory'
@@ -36,6 +36,6 @@ while true; do
 		restart_node_process
 	fi
 	echo sleep  # to be deleted
-	sleep 5s
+	sleep 2s
 done
 
